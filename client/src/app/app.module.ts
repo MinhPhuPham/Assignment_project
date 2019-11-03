@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +19,8 @@ import { ResultsComponent } from './component/results/results.component';
 import { ProfileComponent } from './component/account/profile/profile.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { AboutQAComponent } from './component/about-qa/about-qa.component';
+import { WrongpathComponent } from './component/wrongpath/wrongpath.component';
+import { ListsubjectComponent } from './component/listsubject/listsubject.component';
 
 @NgModule({
   declarations: [
@@ -31,10 +37,16 @@ import { AboutQAComponent } from './component/about-qa/about-qa.component';
     ProfileComponent,
     ContactComponent,
     AboutQAComponent,
+    WrongpathComponent,
+    ListsubjectComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    Ng2SearchPipeModule,
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
