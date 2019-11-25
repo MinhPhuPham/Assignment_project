@@ -1,0 +1,144 @@
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                    <div class="alert alert-dark alert-dismissible fade show">
+                            Home / <span><a routerLink='/listsubject'>subjects</a></span>
+                            </div>
+           <!-- Team -->
+    <section id="team" class="pb-5">
+            <div class="container">
+                <h5 class="section-title h1">OUR SUBJECT</h5>
+            <hr>    
+                <div class="row">
+                    <div class="col-md-8">
+                        <p>Sort By:</p>
+                    </div>
+                    <div class="col-md-4">
+                        <form action="" class="form-inline">
+                                <label for="filter" ng-model="searchText">Filter by:</label>
+                                <input type="text" class="form-control ml-5" name="filter" id="filter" [(ngModel)]="searchText">
+                            </form>
+                        </div>
+                </div>
+                <hr>
+                    <!-- Team member -->
+                   <div class="row">
+                    <div class=" col-xs-12 col-sm-6 col-md-4" [title]="subjects.Name" *ngFor='let subjects of listSubjects | filter:searchText | paginate: config' id="searchTextResults">
+                        <div class="image-flip" ontouchstart="this.classList.toggle('hover');" >
+                            <div class="mainflip" >
+                                <div class="frontside">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <p><img class=" img-fluid" [src]="subjects.Logo" alt="card image"></p>
+                                            <h4 class="card-title">{{subjects.Name}}</h4>
+                                            <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="backside">
+                                    <div class="card">
+                                        <div class="card-body text-center mt-4">
+                                            <h4 class="card-title">{{subjects.Name}}</h4>
+                                            <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                        <i class="fa fa-facebook"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                        <i class="fa fa-twitter"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                        <i class="fa fa-skype"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                        <i class="fa fa-google"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                        <button  type="button" class="btn btn-secondary">About</button>
+                                                </div>
+                                                <div class="col-6">
+                                                        <a href="#" routerLink="/quiz/{{subjects.id}}"><button mdbBtn type="button" class="btn btn-warning" >Exam</button></a>
+                                                </div>
+                                            </div>   
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- ./Team member -->
+                    <hr>
+                    <div class="footer">
+                            <div class="row">
+                                    <div class="col-6">
+                                      Showing {{this.config.currentPage}} of {{this.listSubjects.length/this.config.itemsPerPage |number:"1.0-0"}}
+                                    </div>
+                                    <pagination-controls (pageChange)="pageChanged($event)" maxSize="5" class="col-6"></pagination-controls>
+                                  </div>
+                    </div>
+            </div>
+        </section>
+        <!-- Team -->                        
+            </div>
+            <div class="col-md-2">
+                <div style="position: sticky; top:0; z-index: 1">
+                        <div class="table-responsive">
+                                <table class="table table-fixed">
+                                    <thead>
+                                        <tr>
+                                            <th class="bg-warning"><i class="fas fa-list-alt"></i> List Of Subject</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+                                       <tr *ngFor='let subjects of listSubjects'>
+                                         <td>{{subjects.Name}}</td>
+                                       </tr>
+                                    </tbody>
+                                </table>
+                            </div><!-- End -->
+                    </div>  
+            </div>
+        </div>
+        
+    </div>
+    <script>
+    $( document ).ready(function() {
+      console.log( "document ready!" );
+    
+      var $sticky = $('.sticky');
+      var $stickyrStopper = $('.sticky-stopper');
+      if (!!$sticky.offset()) { // make sure ".sticky" element exists
+    
+        var generalSidebarHeight = $sticky.innerHeight();
+        var stickyTop = $sticky.offset().top;
+        var stickOffset = 0;
+        var stickyStopperPosition = $stickyrStopper.offset().top;
+        var stopPoint = stickyStopperPosition - generalSidebarHeight - stickOffset;
+        var diff = stopPoint + stickOffset;
+    
+        $(window).scroll(function(){ // scroll event
+          var windowTop = $(window).scrollTop(); // returns number
+    
+          if (stopPoint < windowTop) {
+              $sticky.css({ position: 'absolute', top: diff });
+          } else if (stickyTop < windowTop+stickOffset) {
+              $sticky.css({ position: 'fixed', top: stickOffset });
+          } else {
+              $sticky.css({position: 'absolute', top: 'initial'});
+          }
+        });
+    
+      }
+    });
+    </script>
