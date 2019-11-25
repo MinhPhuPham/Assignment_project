@@ -8,7 +8,7 @@ import { from } from 'rxjs';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor( private auth: AuthService) { }
+  constructor( public auth: AuthService) { }
 
   ngOnInit() {
   }

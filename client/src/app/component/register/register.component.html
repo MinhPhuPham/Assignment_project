@@ -20,7 +20,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                  </div>
-                <input name="" class="form-control" placeholder="Email address" type="email" required autofocus>
+                <input name="" class="form-control"  #userEmail placeholder="Email address" type="email" required autofocus>
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
@@ -49,13 +49,13 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                 </div>
-                <input class="form-control" placeholder="Create password" type="password" required>
+                <input class="form-control" #userPwd  placeholder="Create password" type="password" required>
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                 </div>
-                <input class="form-control" placeholder="Repeat password" type="password" required>
+                <input class="form-control" #userPwd2 placeholder="Repeat password" type="password" required>
             </div> <!-- form-group// -->                                      
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block" (click)="authService.SignUp(userEmail.value, userPwd.value)" type="submit"> Create Account  </button>

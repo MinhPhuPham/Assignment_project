@@ -37,7 +37,6 @@ export class QuizComponent implements OnInit {
        ).subscribe(quiz => {
          this.config.totalItems = quiz.length
        })
-       console.log(quiz);
      })
      
      
@@ -67,10 +66,10 @@ export class QuizComponent implements OnInit {
      this.router.navigate([ `/exam/${this.id}/result` ])
    }
  
-   up() {
+   next() {
      this.config.currentPage++;
    }
-   down() {
+   back() {
      this.config.currentPage--;
    }
    firstpage() {

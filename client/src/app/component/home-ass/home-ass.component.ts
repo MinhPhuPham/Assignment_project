@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { subjects } from '../subjects';
 @Component({
   selector: 'app-home-ass',
   templateUrl: './home-ass.component.html',
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeAssComponent implements OnInit {
 
   constructor() { }
-
+  listSubjects=[]
   ngOnInit() {
   }
 

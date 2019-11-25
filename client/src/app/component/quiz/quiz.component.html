@@ -1,10 +1,12 @@
-<h1 class="text-center blue-grey-text mt-5">Time For Quiz</h1>
+<div class="container-fluid">
+    <h1>QUIZ SHEET</h1>
+</div>
 <div class="my-5">
     <div class="container">
 
         <div class="row">
             <div class="card blue-grey-text col-lg-10 col-12 p-0" style="font-size: 20px">
-                <div class="card-header text-center" style="font-size: 30px">Exam</div>
+                <div class="card-header text-center" style="font-size: 30px; color: Grey;">Examination</div>
                 <div class="card-body" *ngFor="let quiz of quiz | paginate : config">
                     {{config.currentPage}}./{{quiz.Text}}
                     <div class="form-check">
@@ -40,10 +42,10 @@
                     <button class="btn" (click)="firstpage()">
                         <i class="fas fa-hand-point-up"></i>
                     </button>
-                    <button class="btn" (click)="down()">
+                    <button class="btn" (click)="back()">
                         <i class="fas fa-hand-point-right"></i>
                     </button>
-                    <button class="btn" (click)="up()">
+                    <button class="btn" (click)="next()">
                         <i class="fas fa-hand-point-left"></i>
                     </button>
                     <button class="btn" (click)="lastpage()">
