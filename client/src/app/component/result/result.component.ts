@@ -14,7 +14,7 @@ export class ResultComponent implements OnInit {
   point : number;
   constructor(private route : ActivatedRoute, 
     private data : QuizService, 
-    private authService : AuthService,) { 
+    public authService : AuthService,) { 
     
   }
 

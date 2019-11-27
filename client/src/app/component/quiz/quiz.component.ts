@@ -51,7 +51,7 @@ export class QuizComponent implements OnInit {
        }
      }
      localStorage.setItem('mark' , mark.toString())
-     this.router.navigate([ `/exam/${this.id}/result` ])
+     this.router.navigate([ `/quiz/${this.id}/result` ])
      }
    }
  
@@ -63,7 +63,7 @@ export class QuizComponent implements OnInit {
        }
      }
      localStorage.setItem('mark' , mark.toString())
-     this.router.navigate([ `/exam/${this.id}/result` ])
+     this.router.navigate([ `/quiz/${this.id}/result` ])
    }
  
    next() {

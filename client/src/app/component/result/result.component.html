@@ -1,1 +1,11 @@
-<p>result works!</p>
+<h2 class="container">
+    RESULT OF YOUR EXAM
+</h2>
+<div class="text-center my-4" *ngIf="authService.userData as user">
+        <h3><strong>Your Point: </strong>{{point}}</h3>
+        <p><strong>User: </strong>{{(user.displayName) ? user.displayName : 'User'}}</p>
+        <p><strong>Email: </strong>{{user.email}}</p>
+        <p><strong>Done: </strong>{{temp}} %</p>
+        <p><strong>Fail: </strong>{{100-temp}} %</p>
+    </div>
+    <p>Comback to page have new experience</p> <a href="#">Home</a>

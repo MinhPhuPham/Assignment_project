@@ -39,7 +39,6 @@ export class ContactComponent implements OnInit {
     }
   
     onSubmit() {
-      
         window.alert('Your message has been sent.');
         this.contactForm.reset();
         this.SubmitDis = true;

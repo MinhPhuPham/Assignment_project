@@ -34,7 +34,7 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email , password)
       .then(result => {
         this.ngZone.run( () => {
-          this.router.navigate(['user']);
+          this.router.navigate(['profile']);
         });
         this.SetUserData(result.user);
       }).catch(error => {
@@ -75,12 +75,12 @@ export class AuthService {
 
   get isLoggedIn() : boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null && user.emailVerified !== false) ? true : false;
+    return (user !== null ) ? true : false;
   }
 
   get isLoggedOut() : boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null && user.emailVerified !== false) ? false : true;
+    return (user !== null ) ? false : true;
   }
 
   //Auth logic to run auth providers

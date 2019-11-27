@@ -49,20 +49,20 @@
                         </li>
                 <li class="nav-item avatar dropdown" id='fix-nav'>
                     <a href="#" routerLink='/profile' style="position: relative;" ><img src="assets/image/user.jpg" class="rounded-circle z-depth-0"
-                      alt="avatar image" style="width:30px; height: 30px; margin-top: 5px" *ngIf='auth.isLoggedIn' >
+                      alt="avatar image" style="width:30px; height: 30px; margin-top: 5px" *ngIf='auth.isLoggedOut' >
                     </a>
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
                           aria-haspopup="true" aria-expanded="false" style="float: right">
               
                         </a>
                         <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
-                          aria-labelledby="navbarDropdownMenuLink-55" *ngIf="auth.isLoggedOut">
+                          aria-labelledby="navbarDropdownMenuLink-55" *ngIf="auth.isLoggedIn">
                           <a class="dropdown-item" href="#" routerLink='/login'>Log in</a>
                           <a class="dropdown-item" href="#" routerLink='/register'>Sign in</a>
                         </div>		
                         <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
-                          aria-labelledby="navbarDropdownMenuLink-55" *ngIf="auth.isLoggedIn">
-                          <a class="dropdown-item" href="#" routerLink='/'>Log out</a>
+                          aria-labelledby="navbarDropdownMenuLink-55" *ngIf="auth.isLoggedOut">
+                          <a class="dropdown-item" href="#" (click)="auth.SignOut()">Log out</a>
                         </div>		
                 </li>
             </ul>
