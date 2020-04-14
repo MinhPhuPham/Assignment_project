@@ -1,0 +1,52 @@
+<h1 class="text-center blue-grey-text mt-5">Time For Quiz</h1>
+<div class="my-5">
+    <div class="container">
+
+        <div class="row">
+            <div class="card blue-grey-text col-lg-10 col-12 p-0" style="font-size: 20px" *ngFor="let quiz of quiz | paginate : config">
+                <div class="card-header text-center" style="font-size: 30px">Exam</div>
+                <div class="card-body" >
+                    {{config.currentPage}}./{{quiz.Text}}
+                    <ul>
+
+                        <mdb-checkbox (change)="changed(1, config.currentPage - 1)"
+                            [checked]="listChoose[config.currentPage - 1] === 1" [default]="true">
+                            {{ quiz.Answers[0].Text}}</mdb-checkbox>
+                        <mdb-checkbox (change)="changed(2, config.currentPage - 1)"
+                            [checked]="listChoose[config.currentPage - 1] === 2" [default]="true">
+                            {{ quiz.Answers[1].Text}}</mdb-checkbox>
+                        <mdb-checkbox (change)="changed(3, config.currentPage - 1)"
+                            [checked]="listChoose[config.currentPage - 1] === 3" *ngIf="quiz.Answers[2]"
+                            [default]="true">
+                            {{ quiz.Answers[2].Text}}</mdb-checkbox>
+                        <mdb-checkbox (change)="changed(4, config.currentPage - 1)"
+                            [checked]="listChoose[config.currentPage - 1] === 4" *ngIf="quiz.Answers[3]"
+                            [default]="true">
+                            {{ quiz.Answers[3].Text}}</mdb-checkbox>
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn"  (click)="firstpage()">
+                        <mdb-icon fas icon="fast-backward"></mdb-icon>
+                    </button>
+                    <button  class="btn" (click)="down()">
+                        <mdb-icon fas icon="arrow-left"></mdb-icon>
+                    </button>
+                    <button class="btn" (click)="up()">
+                        <mdb-icon fas icon="arrow-right"></mdb-icon>
+                    </button>
+                    <button class="btn" (click)="lastpage()">
+                        <mdb-icon fas icon="fast-forward"></mdb-icon>
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-12">
+                <countdown #countdown class="float-right" style="font-size: 20px;" [config]="{leftTime:3600 , demand: false}" (event)="onFinished($event)">$!m!:$!s!
+                </countdown> <br> <br>
+                <button class="btn blue-grey float-right" (click)="onSubmit()" type="submit">Submit</button>
+               
+            </div>
+        </div>
+    </div>
+</div>

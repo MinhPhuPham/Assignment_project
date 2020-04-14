@@ -1,0 +1,59 @@
+<!--Main Navigation-->
+<header>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark pink scrolling-navbar">
+        <a class="navbar-brand" href="#" routerLink='/homepage'><strong>ASSIGNMENT</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" routerLink='/'>Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about" routerLink='/about'>About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact" routerLink='/contact'>Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="exam" routerLink='/exam'>Examination</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav nav-flex-icons">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.facebook.com/phu.cat.58" target="_blank" title="Facebook of Me">
+                        <i class="fab fa-facebook light-green-text-2"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://twitter.com/phamminhphueur" target="_blank" title="Twitter of Me">
+                        <i class="fab fa-twitter light-green-text-2"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href='https://www.instagram.com/minhphu_212/' target="_blank" title="Instagram of Me">
+                        <i class="fab fa-instagram light-green-text-2"></i>
+                    </a>
+                </li>
+                <li class="nav-item avatar dropdown" id='fix-nav'>
+                    <a href="#" routerLink='/user' style="position: relative;" *ngIf="authService.userData as user" [title]="user.displayName"><img src="{{(user.photoURL) ? user.photoURL : 'https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20%283%29.jpg'}}" class="rounded-circle z-depth-0" style="width:30px; height: 30px; margin-top: 5px">
+                    </a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="float: right">
+
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55" *ngIf="authService.isLoggedOut">
+                        <a class="dropdown-item" href="#" routerLink='/login'>Log in</a>
+                        <a class="dropdown-item" href="#" routerLink='/register'>Sign in</a>
+                    </div>
+                    <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55" *ngIf="authService.isLoggedIn">
+                        <a class="dropdown-item" (click)="authService.SignOut()">Log out</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+</header>
+<!--Main Navigation-->
