@@ -124,12 +124,11 @@ export class AuthService {
       merge: true
     })
   }
-
   // Sign out 
   async SignOut() {
     return this.afAuth.auth.signOut().then( () => {
       localStorage.removeItem('user');
-      this.router.navigate(['login'])
+      this.router.navigate(['login']);
     })
   }
 }

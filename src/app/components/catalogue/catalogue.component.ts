@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { list } from '../../model/list'
-import { Title } from '@angular/platform-browser'
+import { list } from '../../model/list';
+import { Title } from '@angular/platform-browser';
+
+import { OrderPipe } from 'ngx-order-pipe';
 @Component({
   selector: 'app-catalogue',
   templateUrl: './catalogue.component.html',
@@ -12,7 +14,9 @@ export class CatalogueComponent implements OnInit {
   config;
   searchText;
   reverse: boolean = false;
-  constructor(private title : Title) {
+  sortedList: any[];
+  order: string = 'Name';
+  constructor(private title : Title, private orderPipe: OrderPipe) {
     this.config = {
       itemsPerPage: 6,
       currentPage: 1,
@@ -20,7 +24,19 @@ export class CatalogueComponent implements OnInit {
     };
 
     this.title.setTitle('Exam');
+
+    // this.sortedList = orderPipe.transform(this.list, 'Name');
+  console.log(this.sortedList);
+  
    }
+
+   setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+
+    this.order = value;
+  }
    
 
   ngOnInit() {
