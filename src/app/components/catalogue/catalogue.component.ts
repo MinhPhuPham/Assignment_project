@@ -11,9 +11,6 @@ export class CatalogueComponent implements OnInit {
   pageOfItems: Array<any>;
   config;
   searchText;
-  reverse: boolean = false;
-  sortedList: any[];
-  order: string = 'Name';
   constructor(private title : Title) {
     this.config = {
       itemsPerPage: 6,
@@ -22,9 +19,6 @@ export class CatalogueComponent implements OnInit {
     };
 
     this.title.setTitle('Exam');
-
-    // this.sortedList = orderPipe.transform(this.list, 'Name');
-  console.log(this.sortedList);
   
    }
 

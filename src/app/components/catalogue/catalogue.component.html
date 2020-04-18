@@ -12,8 +12,8 @@
                     <div class="row">
                         <div class="col-md-8 sort">
                             Sort By:
-                            <span [hidden]="reverse" (click)="setOrder('id')">A -> Z | ▼</span>
-                            <span [hidden]="!reverse" (click)="setOrder('id')"> Z -> A | ▲</span>
+                            <span>Single View</span>
+                            <span>Multiple view</span>
                         </div>
                         <div class="col-md-4">
                             <form action="" class="form-inline">
@@ -25,7 +25,7 @@
                     <hr>
                     <!-- Team member -->
                     <div class="row">
-                        <div class=" col-xs-12 col-sm-6 col-md-4" [title]="temp.Name" *ngFor="let temp of list | filter:searchText | paginate: config |orderBy: order:reverse:'expression'" id="searchTextResults">
+                        <div class=" col-xs-12 col-sm-6 col-md-4" [title]="temp.Name" *ngFor="let temp of list | filter:searchText | paginate: config " id="searchTextResults">
                             <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                                 <div class="mainflip">
                                     <div class="frontside">
