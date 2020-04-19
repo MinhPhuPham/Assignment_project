@@ -32,6 +32,7 @@ import { AuthService } from './services/Authentication/auth.service'
 import { VerifyComponent } from './usercomponent/verify/verify.component';
 import { ForgotPassComponent } from './usercomponent/forgot-pass/forgot-pass.component';
 import { PieComponent } from './components/pie/pie.component';
+import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 @NgModule({
 
   declarations: [
@@ -51,6 +52,7 @@ import { PieComponent } from './components/pie/pie.component';
     VerifyComponent,
     ForgotPassComponent,
     PieComponent,
+    ScrollToTopComponent,
   ],
   imports: [
     BrowserModule,

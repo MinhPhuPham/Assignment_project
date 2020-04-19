@@ -48,7 +48,7 @@
 .profile-edit-btn {
     border: none;
     border-radius: 1.5rem;
-    width: 70%;
+    width: 100%;
     padding: 2%;
     font-weight: 600;
     color: #6c757d;
@@ -111,4 +111,12 @@
 .profile-tab p {
     font-weight: 600;
     color: #0062cc;
+}
+
+.btn-logout {
+    text-align: right;
+}
+
+.logout {
+    margin: 0 auto;
 }

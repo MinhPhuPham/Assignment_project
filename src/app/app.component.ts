@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthService} from './services/Authentication/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Final';
+  constructor(private authService: AuthService) {}
+  ngOnInit() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.setGeoLocation.bind(this));
+    }
+  }
+
+setGeoLocation(position: any) {
+  this.authService.setLocation(
+    position["coords"].latitude,
+    position["coords"].longitude
+  );
+}
 }

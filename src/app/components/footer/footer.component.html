@@ -3,14 +3,29 @@
 
     <!-- Footer Links -->
     <div class="container text-center text-md-left">
+        <div *ngIf="authService.isLoggedIn">
 
+            <!-- Call to action -->
+            <ul class="list-unstyled list-inline text-center py-2">
+                <li class="list-inline-item">
+                    <h5 class="mb-1">Contact to me</h5>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#" routerLink='/contact' class="btn btn-danger btn-rounded">Contact Now!</a>
+                </li>
+            </ul>
+            <!-- Call to action -->
+            <hr>
+        </div>
         <!-- Footer links -->
         <div class="row text-center text-md-left mt-3 pb-3">
 
+
+
             <!-- Grid column -->
             <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                <h6 class="text-uppercase mb-4 font-weight-bold">Company name</h6>
-                <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <h6 class="text-uppercase mb-4 font-weight-bold">Assignment project</h6>
+                <p>Simple project of me in class. Wish you have sweet time with it. Thanks you very much!!!</p>
             </div>
             <!-- Grid column -->
 
@@ -20,16 +35,16 @@
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                 <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
                 <p>
-                    <a href="#!">MDBootstrap</a>
+                    <a href="http://54.179.162.189:3000/" target="_blank">Jable CV-online</a>
                 </p>
                 <p>
-                    <a href="#!">MDWordPress</a>
+                    <a href="http://gettrendsnow.com/" target="_blank">Twitter Trend 24h</a>
                 </p>
                 <p>
-                    <a href="#!">BrandFlow</a>
+                    <a href="https://minhphupham.github.io/CV-maker/" target="_blank">CV Maker Online</a>
                 </p>
                 <p>
-                    <a href="#!">Bootstrap Angular</a>
+                    <a href="https://minhphupham.github.io/Blog-first-project/" target="_blank">Blog HTML</a>
                 </p>
             </div>
             <!-- Grid column -->
@@ -40,17 +55,18 @@
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
                 <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
                 <p>
-                    <a href="#!">Your Account</a>
+                    <a href="#!" routerLink='/user'>Your Account</a>
                 </p>
                 <p>
-                    <a href="#!">Become an Affiliate</a>
+                    <a href="#!" routerLink='/exam'>Examination</a>
                 </p>
                 <p>
-                    <a href="#!">Shipping Rates</a>
+                    <a href="#!" routerLink='/about'>About me</a>
                 </p>
                 <p>
-                    <a href="#!">Help</a>
+                    <a href="#!" routerLink='/contact'>Help</a>
                 </p>
+
             </div>
 
             <!-- Grid column -->
@@ -60,35 +76,33 @@
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                 <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
                 <p>
-                    <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+                    <i class="fas fa-home mr-3"></i> Ho Chi Minh City, Viet Nam</p>
                 <p>
-                    <i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
+                    <i class="fas fa-envelope mr-3"></i>phamminhphueur@gmail.com</p>
                 <p>
-                    <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-                <p>
-                    <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                    <i class="fas fa-phone mr-3"></i> 0916743517</p>
             </div>
             <!-- Grid column -->
 
         </div>
         <!-- Footer links -->
+        <div *ngIf="authService.isLoggedOut">
+            <hr>
+
+            <!-- Call to action -->
+            <ul class="list-unstyled list-inline text-center py-2">
+                <li class="list-inline-item">
+                    <h5 class="mb-1">Register for free</h5>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#" routerLink='/register' class="btn btn-danger btn-rounded">Sign up!</a>
+                </li>
+            </ul>
+            <!-- Call to action -->
+
+        </div>
 
         <hr>
-
-        <!-- Call to action -->
-        <ul class="list-unstyled list-inline text-center py-2">
-            <li class="list-inline-item">
-                <h5 class="mb-1">Register for free</h5>
-            </li>
-            <li class="list-inline-item">
-                <a href="#" routerLink='/register' class="btn btn-danger btn-rounded">Sign up!</a>
-            </li>
-        </ul>
-        <!-- Call to action -->
-
-
-        <hr>
-
         <!-- Grid row -->
         <div class="row d-flex align-items-center">
 

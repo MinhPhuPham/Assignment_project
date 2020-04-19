@@ -3,13 +3,18 @@ import { Router } from '@angular/router';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from './user';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore'
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import * as moment from "moment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   userData: any // save logged in user data
+  location = {
+    lat: null,
+    lon: null
+  };
   constructor(
     public afAuth: AngularFireAuth, // Inject Firebase auth service 
     public router: Router,
@@ -107,7 +112,11 @@ export class AuthService {
     return this.AuthLogin( new auth.FacebookAuthProvider());
   }
 
-
+  setLocation(lat, lon) {
+    this.location.lat = lat;
+    this.location.lon = lon;
+    return this.location;
+  }
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
@@ -116,6 +125,8 @@ export class AuthService {
     const userData : User = {
       uid: user.uid,
       email: user.email,
+      // location:user.getLocation(),
+      LastLoggedOn:user.moment(new Date()).format("X"),
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified
