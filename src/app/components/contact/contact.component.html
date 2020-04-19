@@ -2,7 +2,7 @@
     <!-- Default form contact -->
     <form class="text-center border border-light p-5" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
 
-        <p class="h4 mb-4">Contact us</p>
+        <p class="h4 mb-4" style="font-size: 2rem;">Contact us</p>
 
         <!-- Name -->
         <input type="text" formControlName="contactFormName" id="defaultContactFormName" mdbInput class="form-control mb-4" placeholder="Name">
@@ -11,7 +11,7 @@
         <input type="email" formControlName="contactFormEmail" id="defaultContactFormEmail" mdbInput class="form-control mb-4" placeholder="E-mail">
 
         <!-- Subject -->
-        <label style="background-color: dimgray;">Subject</label>
+        <label style="font-weight: 450;font-size: 1.2rem;">Subject</label>
         <select formControlName="contactFormSubjects" class="browser-default custom-select mb-4">
     <option value="" disabled>Choose option</option>
     <option  selected>Feedback</option>
@@ -29,7 +29,7 @@
         <mdb-checkbox [default]="true" class="mb-4">Send me a copy of this message</mdb-checkbox>
 
         <!-- Send button -->
-        <button mdbBtn color="info" outline="true" block="true" class="z-depth-0 my-4 waves-effect" mdbWavesEffect type="submit" [disabled]="disabledSubmitButton">Send</button>
+        <button mdbBtn color="info" outline="true" block="true" class="z-depth-0 my-4 waves-effect btn-send" mdbWavesEffect type="submit" [disabled]="disabledSubmitButton">Send</button>
 
     </form>
     <!-- Default form contact -->
