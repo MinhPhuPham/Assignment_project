@@ -8,7 +8,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class VerifyComponent implements OnInit {
 
-  constructor(private authService : AuthService, private title : Title) { this.title.setTitle('Verify') }
+  constructor(public authService : AuthService, private title : Title) { this.title.setTitle('Verify') }
 
   ngOnInit() {
   }

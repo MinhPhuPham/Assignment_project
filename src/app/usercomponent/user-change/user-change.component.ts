@@ -9,7 +9,7 @@ import { AuthService } from '../../services/Authentication/auth.service'
 })
 export class UserChangeComponent implements OnInit {
 
-	constructor(private authService : AuthService, private title : Title) { this.title.setTitle('User')}
+	constructor(public authService : AuthService, private title : Title) { this.title.setTitle('User')}
 
 	ngOnInit()
 	{

@@ -19,8 +19,8 @@ export class PieComponent implements OnInit {
   constructor(
     private route : ActivatedRoute, 
     private data : GetService, 
-    private authService : AuthService,
-    private location : Location
+    public authService : AuthService,
+    public location : Location
     ) { }
 
   ngOnInit() {

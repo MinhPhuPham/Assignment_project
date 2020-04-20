@@ -8,7 +8,7 @@ import { Title } from '@angular/platform-browser'
 })
 export class ForgotPassComponent implements OnInit {
 
-  constructor(private authService : AuthService, private title : Title) {this.title.setTitle('Forgot Pass') }
+  constructor(public authService : AuthService, private title : Title) {this.title.setTitle('Forgot Pass') }
 
   ngOnInit() {
   }
