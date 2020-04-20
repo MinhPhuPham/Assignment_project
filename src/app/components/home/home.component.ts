@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Sort } from '@angular/material/sort';
+import { Router } from '@angular/router';
 import { list } from '../../model/list';
-import { Title } from '@angular/platform-browser'
+import { Title } from '@angular/platform-browser';
+import {GetService} from '../../services/data/get.service'
 
 import { FormGroup, FormControl, FormBuilder, Validators } from "@angular/forms";
 @Component({
@@ -12,7 +13,8 @@ import { FormGroup, FormControl, FormBuilder, Validators } from "@angular/forms"
 export class HomeComponent implements OnInit {
   list = [...list]
   Register: FormGroup;
-  constructor(private title : Title, private fb: FormBuilder) {this.title.setTitle('Home') }
+  message:string;
+  constructor(private title : Title, private fb: FormBuilder, private data:GetService,public router: Router) {this.title.setTitle('Home') }
 
   ngOnInit() {
     this.Register = this.fb.group({
@@ -23,12 +25,12 @@ export class HomeComponent implements OnInit {
         Validators.email
       ])
     });
-    let email = this.Register.get('email');
-    console.log(email);
-    
+    this.data.currentMessage.subscribe(message => this.message = message)
   }
-  Sendmail(){
+  async Sendmail(){
     let email = this.Register.get('email');
+    await this.data.changeMessage(email.value);
+    this.router.navigate(['register']);
   }
  
 

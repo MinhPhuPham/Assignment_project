@@ -250,30 +250,113 @@
     }
     .input_email,
     .submit {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         height: 3rem;
     }
 }
 
-@media (min-width: 992px) and (max-width: 1180px) {}
-
-@media (min-width: 768px) and (max-width: 992px) {}
-
-@media (min-width: 300px) and (max-width: 768px) {
-    .offset-top-3 {
-        margin-left: 0px;
-    }
-    .title-banner {
-        font-size: 32px;
-    }
-}
-
-@media only screen and (min-width: 240px) and (max-width: 480px) {
+@mixin offset-top-3 {
     .offset-top-3 {
         margin-left: 0px !important;
     }
     .title-banner {
         font-size: 40px !important;
-        margin-bottom: 1rem !important;
     }
+    .intro {
+        margin-bottom: 1.5rem !important;
+        p {
+            font-weight: 390 !important;
+            font-size: 1.1rem !important;
+        }
+    }
+}
+
+@mixin offset-md {
+    .offset-top-3 {
+        margin-left: 0px !important;
+    }
+    .title-banner {
+        font-size: 2.7rem !important;
+        margin-bottom: 2rem !important;
+    }
+}
+
+@media (min-width: 1110px) and (max-width: 1300px) {
+    @include offset-md();
+}
+
+@media (min-width: 994px) and (max-width: 1280px) {
+    .character {
+        top: 35% !important;
+        left: 12% !important;
+    }
+    @include offset-md()
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    @include offset-top-3();
+}
+
+@media (min-width:240px) and (max-width:576px) {
+    .input_email,
+    .submit {
+        border-radius: 1.5rem !important;
+    }
+}
+
+@mixin banner-sm {
+    .speech-bubble {
+        padding: .5rem 1rem !important;
+        margin: 0 !important;
+        font-size: 150% !important;
+        left: 0 !important;
+    }
+    .character {
+        top: 1rem !important;
+        left: 2% !important;
+    }
+}
+
+@media (min-width: 438px) and (max-width: 736px) {
+    .overlay {
+        top: 0 !important;
+    }
+    // .jumbotron-container {
+    //     height: 500px !important;
+    // }
+    .character {
+        top: 4rem !important;
+        left: 5% !important;
+    }
+}
+
+@media (min-width: 300px) and (max-width: 438) {
+    .character {
+        top: 1rem !important;
+        left: 12% !important;
+    }
+}
+
+@media (min-width: 300px) and (max-width: 768px) {
+    .jumbotron-container {
+        height: 600px !important;
+        .title-banner {
+            margin-bottom: .5rem !important;
+        }
+    }
+    @include offset-top-3();
+    .speech-bubble {
+        padding: .5rem 1rem !important;
+        margin: 0 !important;
+        font-size: 150% !important;
+        left: -20% !important;
+    }
+}
+
+@media only screen and (min-width: 240px) and (max-width: 480px) {
+    .jumbotron-container {
+        height: 600px !important;
+    }
+    @include offset-top-3();
+    @include banner-sm();
 }

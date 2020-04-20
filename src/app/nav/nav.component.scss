@@ -9,10 +9,15 @@ header {
 
 .navbar {
     box-shadow: none;
+    font-weight: 550;
 }
 
 nav {
     background-color: #c09815;
+}
+
+.dropdown-menu {
+    margin: 0.35rem -1rem 0 0 !important;
 }
 
 .top-nav-collapse {
@@ -34,5 +39,11 @@ nav {
 @media only screen and (max-width: 768px) {
     .navbar {
         background-color: #4285F4;
+    }
+}
+
+@media only screen and (min-width: 240px) and (max-width: 600px) {
+    header {
+        margin-bottom: 56px;
     }
 }
