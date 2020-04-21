@@ -10,8 +10,9 @@
 
 <body>
     <app-nav></app-nav>
-
-    <router-outlet></router-outlet>
+    <div [@routeAnimations]="prepareRoute(outlet)" style="min-height: 95vh; overflow: hidden;">
+        <router-outlet #outlet="outlet"></router-outlet>
+    </div>
 
     <app-scroll-to-top></app-scroll-to-top>
     <app-footer></app-footer>

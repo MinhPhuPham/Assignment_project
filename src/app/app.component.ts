@@ -1,13 +1,24 @@
 import { Component } from '@angular/core';
 import {AuthService} from './services/Authentication/auth.service';
+import { RouterOutlet } from '@angular/router';
+import { slider, transformer, fader, stepper } from './route-animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    // fader,
+    slider,
+    // transformer,
+    // stepper
+  ]
 })
 export class AppComponent {
   title = 'Final';
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
   
   constructor(public authService: AuthService) {}
   ngOnInit() {

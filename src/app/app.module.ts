@@ -8,6 +8,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AngularFireModule } from '@angular/fire';
 import { CountdownModule } from 'ngx-countdown';
 import { ChartsModule } from 'ng2-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +36,7 @@ import { PieComponent } from './components/pie/pie.component';
 import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { EditUserComponent } from './usercomponent/edit-user/edit-user.component';
+
 @NgModule({
 
   declarations: [
@@ -61,6 +63,7 @@ import { EditUserComponent } from './usercomponent/edit-user/edit-user.component
   imports: [
     BrowserModule,
     ChartsModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     NgxPaginationModule,
     HttpClientModule,

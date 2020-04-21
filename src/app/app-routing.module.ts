@@ -28,11 +28,11 @@ const routes: Routes = [
   { path : 'exam', component : CatalogueComponent , canActivate : [AuthGuard]},
   { path : 'login', component : SignInComponent , canActivate : [SecureInnerPages]},
   { path : 'register', component : SignUpComponent , canActivate : [SecureInnerPages]},
-  { path : 'user' , component : UserChangeComponent , canActivate : [AuthGuard]},
+  { path : 'user' , component : UserChangeComponent , canActivate : [AuthGuard], data: { animation: 'isLeft' }},
   { path : 'verify-email' , component : VerifyComponent , canActivate : [SecureInnerPages] },
   { path : 'forgot-pass' , component : ForgotPassComponent , canActivate : [SecureInnerPages]},
-  { path : 'edit', component:EditUserComponent,canActivate : [AuthGuard]},
-  { path : 'exam/:id/result' , component : PieComponent},
+  { path : 'edit', component:EditUserComponent,canActivate : [AuthGuard], data: { animation: 'isRight' }},
+  { path : 'exam/:id/result' , component : PieComponent, data: { animation: 'isRight' }},
   {path:'wrongpath', component:NotFoundComponent},
   {path:'**', redirectTo: 'wrongpath',pathMatch:'full'}
 ];

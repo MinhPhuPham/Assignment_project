@@ -13,6 +13,7 @@ export class PieComponent implements OnInit {
   temp : number ;
   mark :number =parseInt(localStorage.getItem('mark'))
   point : number;
+  id: string;
   public pieChartLabels = ['Done' , 'Fail']
   public pieChartData = [Math.round(((this.mark/this.total)*100) * 100) / 100 , 100 - (Math.round(((this.mark/this.total)*100) * 100))];
   public pieChartType = 'pie';
@@ -25,15 +26,15 @@ export class PieComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-       /* this.mark = parseInt(params.get('mark')); */
       this.mark = parseInt(localStorage.getItem('mark'));
-      let id = params.get('id');
-      this.data.getquiz(id).subscribe(quiz => {
+       this.id = params.get('id');
+      this.data.getquiz(this.id).subscribe(quiz => {
         this.total = quiz.length;
         this.point = Math.round((this.mark * (10 / this.total)) * 10) / 10;
         this.temp = Math.round(((this.mark/this.total)*100) * 100) / 100        
         this.pieChartData = [this.temp, 100-this.temp];
       })    
+      
      
       
     })
