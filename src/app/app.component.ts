@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {AuthService} from './services/Authentication/auth.service';
 import { RouterOutlet } from '@angular/router';
-import { slider, transformer, fader, stepper } from './route-animations';
+import { slider } from './route-animations';
 
 @Component({
   selector: 'app-root',
