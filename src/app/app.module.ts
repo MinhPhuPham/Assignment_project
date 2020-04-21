@@ -9,6 +9,8 @@ import { AngularFireModule } from '@angular/fire';
 import { CountdownModule } from 'ngx-countdown';
 import { ChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -67,11 +69,19 @@ import { EditUserComponent } from './usercomponent/edit-user/edit-user.component
     AppRoutingModule,
     NgxPaginationModule,
     HttpClientModule,
+    ToastrModule.forRoot(
+      {  
+        timeOut: 1000,
+        positionClass:'toast-bottom-right',  
+        closeButton: true,  
+      }  
+    ) ,
     MDBBootstrapModule.forRoot(),
     Ng2SearchPipeModule,
     ReactiveFormsModule,
     FormsModule,
     CountdownModule,
+
     AngularFireModule.initializeApp(environment.firebaseConfig),  // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,

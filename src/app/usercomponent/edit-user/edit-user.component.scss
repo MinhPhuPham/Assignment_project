@@ -120,3 +120,16 @@
 .logout {
     margin: 0 auto;
 }
+
+.show2 {
+    display: none;
+}
+
+@media (min-width: 200px) and (max-width: 767px) {
+    .hidden {
+        display: none;
+    }
+    .show2 {
+        display: block;
+    }
+}

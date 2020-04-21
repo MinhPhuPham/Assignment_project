@@ -15,7 +15,15 @@
                     <h6>
                         Web Developer and Designer
                     </h6>
-                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-6 col-sm-6 col-xs-6">
+                            <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 ">
+                            <a routerLink='/edit'> <input type="submit" class="profile-edit-btn show2" name="btnAddMore" value="Edit Profile" /></a>
+                        </div>
+
+                    </div>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
@@ -26,8 +34,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-2">
-                <a href="#" routerLink='/edit'> <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" /></a>
+            <div class="col-md-2 hidden">
+                <a routerLink='/edit'> <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" /></a>
             </div>
         </div>
         <div class="row">
@@ -82,6 +90,14 @@
                             </div>
                             <div class="col-md-6">
                                 <p><strong>{{user.emailVerified}}</strong></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Provider Login</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>{{user.providerId}}</strong></p>
                             </div>
                         </div>
                         <div class="row">

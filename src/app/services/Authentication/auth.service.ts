@@ -11,10 +11,11 @@ import * as moment from "moment";
 })
 export class AuthService {
   userData: any // save logged in user data
-  location = {
-    lat: null,
-    lon: null
-  };
+  Userdata2
+  provider
+    latitude: null;
+    longitude: null;
+  providerData: any;
   constructor(
     public afAuth: AngularFireAuth, // Inject Firebase auth service 
     public router: Router,
@@ -28,11 +29,16 @@ export class AuthService {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user'));
+        this.Userdata2= JSON.parse(localStorage.getItem('user'));        
+        this.provider=this.Userdata2.providerData;
+        this.providerData =this.provider[0];
+        let providerId =this.providerData.photoURL;
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
       }
     })
+    
   } // end of constructor
 
   // Sign in with email/password
@@ -113,10 +119,14 @@ export class AuthService {
   }
 
   setLocation(lat, lon) {
-    this.location.lat = lat;
-    this.location.lon = lon;
-    return this.location;
+    this.latitude = lat;
+    this.longitude = lon;
   }
+  ngOnInit() {
+    console.log(this.latitude);
+  }
+  
+  
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
@@ -125,11 +135,14 @@ export class AuthService {
     const userData : User = {
       uid: user.uid,
       email: user.email,
-      // location:user.getLocation(),
-      LastLoggedOn:user.moment(new Date()).format("X"),
+      latitude: this.latitude,
+      longitude:this.longitude,
+      // LastLoggedOn:user.moment(new Date()).format("X"),
       displayName: user.displayName,
       photoURL: user.photoURL,
-      emailVerified: user.emailVerified
+      emailVerified: user.emailVerified,
+      phone: user.phone,
+      profession: user.profession,
     }
     return userRef.set(userData, {
       merge: true

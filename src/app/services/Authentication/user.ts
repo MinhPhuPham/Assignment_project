@@ -1,11 +1,17 @@
 export interface User {
     uid : string;
     email : string;
-    // location: {
-    //     lat: number;
-    //     lon: number;
-    //   };
-    LastLoggedOn: string;
+    latitude: string;
+    longitude: string;
+    // LastLoggedOn: string;
+    displayName : string;
+    photoURL: string;
+    emailVerified: boolean;
+    phone:number;
+    profession:string;
+}
+export interface User_Detail {
+    uid : string;
     displayName : string;
     photoURL: string;
     emailVerified: boolean;
