@@ -20,7 +20,7 @@ export class PieComponent implements OnInit {
     private route : ActivatedRoute, 
     private data : GetService, 
     public authService : AuthService,
-    public location : Location
+    private _location: Location
     ) { }
 
   ngOnInit() {
@@ -38,7 +38,10 @@ export class PieComponent implements OnInit {
       
     })
     
-    
   }
+  Back(){
+    this._location.back();
+  }
+
 
 }

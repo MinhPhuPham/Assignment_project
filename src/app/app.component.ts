@@ -8,6 +8,7 @@ import {AuthService} from './services/Authentication/auth.service';
 })
 export class AppComponent {
   title = 'Final';
+  
   constructor(public authService: AuthService) {}
   ngOnInit() {
     if (navigator.geolocation) {

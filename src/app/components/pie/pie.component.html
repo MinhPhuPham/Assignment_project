@@ -1,23 +1,26 @@
 <div class="text-center my-4  blue-grey-text">
     <h1>The Chart Show You Percent Of Done And Fail In Your Exam</h1>
 </div>
-<div style="display: block" width="50px">
-    <canvas baseChart
-            [data]="pieChartData"
-            [labels]="pieChartLabels"
-            [chartType]="pieChartType"></canvas>
-  </div>
-<br>
-<div class="text-center my-4" *ngIf="authService.userData as user">
-    <h3><strong>Your Point: </strong>{{point}}</h3>
-    <p><strong>User: </strong>{{(user.displayName) ? user.displayName : 'User'}}</p>
-    <p><strong>Email: </strong>{{user.email}}</p>
-    <p><strong>Done: </strong>{{temp}} %</p>
-    <p><strong>Fail: </strong>{{100-temp}} %</p>
-    <hr>
-    <button class="btn btn-primary" routerLink="/exam">Let's go For another test</button>
-    <br>
-    <small>or</small>
-    <hr>
-    <a role="button" class="btn btn-primary" (click)="location.back()">Test Again</a>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <div style="display: block" width="50px">
+                <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"></canvas>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="text-center my-4" *ngIf="authService.userData as user">
+                <h3><strong>Your Point: </strong>{{point}}</h3>
+                <p><strong>User: </strong>{{(user.displayName) ? user.displayName : 'User'}}</p>
+                <p><strong>Email: </strong>{{user.email}}</p>
+                <p><strong>Done: </strong>{{temp}} %</p>
+                <p><strong>Fail: </strong>{{100-temp}} %</p>
+                <hr>
+                <button class="btn btn-primary" routerLink="/exam">Let's go For another test</button>
+                <br>
+                <small>or</small>
+                <a role="button" class="btn btn-primary" (click)="Back()">Test Again</a>
+            </div>
+        </div>
+    </div>
 </div>

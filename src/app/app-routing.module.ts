@@ -15,6 +15,8 @@ import { ForgotPassComponent } from './usercomponent/forgot-pass/forgot-pass.com
 import { AuthGuard } from './shared/guard/auth.guard';
 import { SecureInnerPages } from './shared/guard/secure-inner-pages.guard.ts.guard';
 import { PieComponent } from './components/pie/pie.component';
+import { EditUserComponent } from './usercomponent/edit-user/edit-user.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path : 'home' , component : HomeComponent },
@@ -29,7 +31,10 @@ const routes: Routes = [
   { path : 'user' , component : UserChangeComponent , canActivate : [AuthGuard]},
   { path : 'verify-email' , component : VerifyComponent , canActivate : [SecureInnerPages] },
   { path : 'forgot-pass' , component : ForgotPassComponent , canActivate : [SecureInnerPages]},
-  { path : 'exam/:id/result' , component : PieComponent}
+  { path : 'edit', component:EditUserComponent,canActivate : [AuthGuard]},
+  { path : 'exam/:id/result' , component : PieComponent},
+  {path:'wrongpath', component:NotFoundComponent},
+  {path:'**', redirectTo: 'wrongpath',pathMatch:'full'}
 ];
 
 @NgModule({
