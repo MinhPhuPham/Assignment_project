@@ -79,12 +79,31 @@
             border-top-right-radius: 0;
         }
         .submit {
-            margin: 0;
             border-radius: 1.5rem;
             border-bottom-left-radius: 0;
             border-top-left-radius: 0;
             font-weight: 500;
             text-transform: none;
+        }
+        .fix {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+        .service {
+            border-radius: 1.5rem;
+            font-weight: 500;
+            text-transform: none;
+            padding: .84rem 2.14rem !important;
+            font-size: 1.2rem !important;
+            margin: .375rem;
+            transition: all .5s ease;
+            &:hover {
+                background-image: linear-gradient(40deg, #ff6ec4, #7873f5) !important;
+                // color: rgb(192, 68, 11) !important;
+                border: none !important;
+            }
         }
         .overlay {
             max-width: 58%;
@@ -100,8 +119,8 @@
             top: 3rem;
             left: 22%;
             z-index: 3;
-            filter: drop-shadow(10px .01px 6px rgba(85, 84, 84, 0.5));
-            -webkit-filter: drop-shadow(10px .01px 6px rgba(85, 84, 84, 0.5));
+            filter: drop-shadow(8px .01px 6px rgba(85, 84, 84, 0.5));
+            -webkit-filter: drop-shadow(8px .01px 6px rgba(85, 84, 84, 0.5));
         }
     }
 }
@@ -316,6 +335,8 @@
     .character {
         top: 1rem !important;
         left: 2% !important;
+        filter: drop-shadow(3px .01px 6px rgba(85, 84, 84, 0.5)) !important;
+        -webkit-filter: drop-shadow(3px .01px 6px rgba(85, 84, 84, 0.5)) !important;
     }
 }
 
@@ -329,6 +350,8 @@
     .character {
         top: 4rem !important;
         left: 5% !important;
+        filter: drop-shadow(3px .01px 6px rgba(85, 84, 84, 0.5)) !important;
+        -webkit-filter: drop-shadow(3px .01px 6px rgba(85, 84, 84, 0.5)) !important;
     }
 }
 
@@ -336,6 +359,8 @@
     .character {
         top: 1rem !important;
         left: 12% !important;
+        filter: drop-shadow(3px .01px 6px rgba(85, 84, 84, 0.5)) !important;
+        -webkit-filter: drop-shadow(3px .01px 6px rgba(85, 84, 84, 0.5)) !important;
     }
 }
 

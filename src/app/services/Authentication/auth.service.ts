@@ -32,7 +32,7 @@ export class AuthService {
         this.Userdata2= JSON.parse(localStorage.getItem('user'));        
         this.provider=this.Userdata2.providerData;
         this.providerData =this.provider[0];
-        let providerId =this.providerData.photoURL;
+        this.provider =this.providerData.photoURL;
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
@@ -137,7 +137,7 @@ export class AuthService {
       email: user.email,
       latitude: this.latitude,
       longitude:this.longitude,
-      // LastLoggedOn:user.moment(new Date()).format("X"),
+      // LastLoggedOn:user.getTime(),
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,

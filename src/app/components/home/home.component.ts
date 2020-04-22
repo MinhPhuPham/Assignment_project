@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { list } from '../../model/list';
 import { Title } from '@angular/platform-browser';
-import {GetService} from '../../services/data/get.service'
+import {GetService} from '../../services/data/get.service';
+import { AuthService } from '../../services/Authentication/auth.service';
 
 import { FormGroup, FormControl, FormBuilder, Validators } from "@angular/forms";
 @Component({
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   list = [...list]
   Register: FormGroup;
   message:string;
-  constructor(private title : Title, private fb: FormBuilder, private data:GetService,public router: Router) {this.title.setTitle('Home') }
+  constructor(private title : Title,public authService: AuthService, private fb: FormBuilder, private data:GetService,public router: Router) {this.title.setTitle('Home') }
 
   ngOnInit() {
     this.Register = this.fb.group({

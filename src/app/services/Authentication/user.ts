@@ -14,5 +14,4 @@ export interface User_Detail {
     uid : string;
     displayName : string;
     photoURL: string;
-    emailVerified: boolean;
 }
