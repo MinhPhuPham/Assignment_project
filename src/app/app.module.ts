@@ -9,22 +9,17 @@ import { AngularFireModule } from '@angular/fire';
 import { CountdownModule } from 'ngx-countdown';
 import { ChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
- 
 import { ToastrModule } from 'ngx-toastr';
-
+import {CustomersModule} from './customers/customers.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
+// import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { FeedbackComponent } from './components/feedback/feedback.component';
-import { AskComponent } from './components/ask/ask.component';
 import { SignInComponent } from './usercomponent/sign-in/sign-in.component';
 import { SignUpComponent } from './usercomponent/sign-up/sign-up.component';
+import {SharedModule} from './shared/shared/shared.module'
 
-import { UserChangeComponent } from './usercomponent/user-change/user-change.component';
-import { CatalogueComponent } from './components/catalogue/catalogue.component';
-import { TestingComponent } from './components/testing/testing.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { environment } from '../environments/environment';
@@ -34,33 +29,30 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthService } from './services/Authentication/auth.service'
 import { VerifyComponent } from './usercomponent/verify/verify.component';
 import { ForgotPassComponent } from './usercomponent/forgot-pass/forgot-pass.component';
-import { PieComponent } from './components/pie/pie.component';
+
 import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { EditUserComponent } from './usercomponent/edit-user/edit-user.component';
+import { from } from 'rxjs';
+
 
 @NgModule({
 
   declarations: [
     AppComponent,
-    HomeComponent,
+    // HomeComponent,
     AboutComponent,
     ContactComponent,
-    FeedbackComponent,
-    AskComponent,
     SignInComponent,
     SignUpComponent,
-    UserChangeComponent,
-    CatalogueComponent,
-    TestingComponent,
+    
     NavComponent,
     FooterComponent,
     VerifyComponent,
     ForgotPassComponent,
-    PieComponent,
+    
     ScrollToTopComponent,
     NotFoundComponent,
-    EditUserComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -69,6 +61,7 @@ import { EditUserComponent } from './usercomponent/edit-user/edit-user.component
     AppRoutingModule,
     NgxPaginationModule,
     HttpClientModule,
+    CustomersModule,
     ToastrModule.forRoot(
       {  
         timeOut: 1000,
@@ -81,7 +74,7 @@ import { EditUserComponent } from './usercomponent/edit-user/edit-user.component
     ReactiveFormsModule,
     FormsModule,
     CountdownModule,
-
+    SharedModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),  // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,

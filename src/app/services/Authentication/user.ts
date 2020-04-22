@@ -7,8 +7,8 @@ export interface User {
     displayName : string;
     photoURL: string;
     emailVerified: boolean;
-    phone:number;
-    profession:string;
+    // phone:number;
+    // profession:string;
 }
 export interface User_Detail {
     uid : string;
