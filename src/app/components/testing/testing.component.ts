@@ -11,6 +11,7 @@ import { Router } from '@angular/router'
   styleUrls: ['./testing.component.scss']
 })
 export class TestingComponent implements OnInit {
+  isGoOut =true;
   quiz :quiz[];
   config;
   public id;
@@ -41,6 +42,7 @@ export class TestingComponent implements OnInit {
   }
   
   onFinished(event) {
+    
     if(event.action == "done") {   
     let mark =0;
     for(var i = 0; i < this.listChoose.length; i++) {
@@ -48,12 +50,14 @@ export class TestingComponent implements OnInit {
         mark++;
       }
     }
+    this.isGoOut=false;
     localStorage.setItem('mark' , mark.toString())
     this.router.navigate([ `/exam/${this.id}/result` ])
     }
   }
 
   onSubmit() {
+    this.isGoOut=false;
     let mark =0;
     for(var i = 0; i < this.listChoose.length; i++) {
       if(this.quiz[i].Answers[this.listChoose[i] -1].Id === this.quiz[i].AnswerId) {

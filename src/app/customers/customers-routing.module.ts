@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent } from '../components/home/home.component';
-import { CustomersComponent } from './customers.component';
 import { UserChangeComponent } from '../usercomponent/user-change/user-change.component';
 import { CatalogueComponent } from '../components/catalogue/catalogue.component';
 import { TestingComponent } from '../components/testing/testing.component';
@@ -10,12 +9,13 @@ import { EditUserComponent } from '../usercomponent/edit-user/edit-user.componen
 
 
 import { AuthGuard } from '../shared/guard/auth.guard';
+import { CheckTestGuard } from '../components/testing/check-test.guard';
 
 const routes: Routes = [
   {path:'', redirectTo:'home',pathMatch:'full'},
   { path: 'home',component:HomeComponent,},
   
-  { path : 'exam/:id' , component : TestingComponent , canActivate : [AuthGuard]},
+  { path : 'exam/:id' , component : TestingComponent , canDeactivate : [CheckTestGuard]},
 { path : 'exam', component : CatalogueComponent , canActivate : [AuthGuard]},
 { path : 'user' , component : UserChangeComponent , canActivate : [AuthGuard], data: { animation: 'isLeft' }},
 { path : 'edit', component:EditUserComponent,canActivate : [AuthGuard], data: { animation: 'isRight' }},

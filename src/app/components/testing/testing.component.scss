@@ -1,0 +1,21 @@
+.custom {
+    // max-width: 700px;
+    float: right;
+    .col-5 {
+        padding-left: 0 !important;
+    }
+    .btn-right {
+        padding: .74rem 2rem !important;
+        margin-left: 0;
+        padding-left: 0;
+    }
+}
+
+.container {
+    .card-body {
+        padding: 1rem 1rem 1rem 1.7rem;
+        ul {
+            margin-bottom: 0;
+        }
+    }
+}
