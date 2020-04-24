@@ -1,8 +1,8 @@
 export interface User {
     uid : string;
     email : string;
-    latitude: string;
-    longitude: string;
+    // latitude: string;
+    // longitude: string;
     // LastLoggedOn: string;
     displayName : string;
     photoURL: string;

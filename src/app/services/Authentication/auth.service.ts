@@ -29,10 +29,6 @@ export class AuthService {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user'));
-        this.Userdata2= JSON.parse(localStorage.getItem('user'));        
-        this.provider=this.Userdata2.providerData;
-        this.providerData =this.provider[0];
-        this.provider =this.providerData.photoURL;
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
@@ -122,10 +118,6 @@ export class AuthService {
     this.latitude = lat;
     this.longitude = lon;
   }
-  ngOnInit() {
-    console.log(this.latitude);
-  }
-  
   
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
@@ -135,9 +127,9 @@ export class AuthService {
     const userData : User = {
       uid: user.uid,
       email: user.email,
-      latitude: this.latitude,
-      longitude:this.longitude,
-      // LastLoggedOn:user.getTime(),
+      // latitude: this.latitude,
+      // longitude:this.longitude,
+      // LastLoggedOn:user.moment(new Date()).format("X"),
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
