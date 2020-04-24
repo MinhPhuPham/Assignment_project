@@ -63,7 +63,8 @@ export class TestingComponent implements OnInit {
     if(index_choosen.indexOf(curren_ques)==-1){
       return false
     }
-    return true;
+    return true &&
+    this.config.currentPage==curren_ques+1;
   }
   check(){
     this.check_question;
