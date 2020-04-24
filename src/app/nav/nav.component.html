@@ -2,10 +2,11 @@
 <header>
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark primary scrolling-navbar">
-        <a class="navbar-brand" href="#" routerLink='/home'><strong><img src="../../assets/quiz-logo.png" alt="logo" style="width:75px"></strong></a>
+        <a class="navbar-brand" href="#" routerLink='/home'><strong><img src="../../assets/quiz-logo.png" alt="logo"
+                    style="width:75px"></strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -39,11 +40,11 @@
                 </li>
                 <li class="nav-item" *ngIf="authService.isLoggedOut">
                     <a class="nav-link btn-login" routerLink='/login'>
-                       Login
+                        Login
                     </a>
                 </li>
                 <li class="nav-item avatar dropdown" id='fix-nav' *ngIf="authService.isLoggedIn">
-                    <a href="#" routerLink='/user' style="position: relative;" title="Profile" *ngIf='authService.userData as user;'><img src="{{(user.photoURL) ? user.photoURL : 'https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20%283%29.jpg'}}" class="rounded-circle z-depth-0" style="width:30px; height: 30px; margin-top: 5px">
+                    <a href="#" routerLink='/user' style="position: relative;color: #575153; cursor: pointer;" title="Profile" *ngIf='authService.userData as user;'><img src="{{(user.photoURL) ? user.photoURL : 'https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20%283%29.jpg'}}" class="rounded-circle z-depth-0 custom-img"> {{(user.displayName) ? user.displayName : 'User'}}
                     </a>
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="float: right">
                     </a>

@@ -17,7 +17,7 @@ export class GetService {
   currentMessage = this.messageSource.asObservable();
   constructor(private http : HttpClient,  private toastr: ToastrService, public router : Router) { }
   getquiz(id) : Observable<quiz[]> {
-      return this.http.get<quiz[]>(`../../../assets/data/${id}.json`)
+      return this.http.get<quiz[]>(`../../../assets/data/data-format/${id}.json`)
                       .pipe(
                         catchError((err)=>{
                           this.toastr.error('Data Not Available! Will fix soonest', 'We are sorry!',{

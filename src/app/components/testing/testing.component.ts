@@ -72,36 +72,10 @@ export class TestingComponent implements OnInit {
     let curren_ques = number.getAttribute('data_index');
     this.config.currentPage = parseInt(curren_ques)+1;
   }
-  // checkAnswer(Answered){
-  //   return Answered =true;
-  // }
+
   isAnswered(quiz: quiz) {
     return this.quiz.find(x => x.Answered);
   }
-  // test_function(){
-  //   // for(var i = 0; i < this.listChoose.length; i++) {
-  //   //   console.log(this.listChoose);
-  //   // }
-  //   // let index_choosen=Object.keys(this.quiz[i].Answered);
-  //   console.log(this.quiz);
-
-  //   for(var i=0; i< this.quiz.length; i++){
-
-  //     if(this.quiz[i].Answered==true){
-  //       console.log(this.quiz[i]);
-
-  //       // console.log(index_choosen);
-
-  //     }
-  //     else
-  //     console.log('false');
-  //     ;
-  //   }
-  //   // let index_choosen=Object.keys(this.listChoose);
-  //   // console.log(index_choosen);
-
-  // }
-
   onSubmit() {
     this.isGoOut = true;
     let mark = 0;
