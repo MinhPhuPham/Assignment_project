@@ -16,7 +16,7 @@ export class CheckTestGuard implements CanDeactivate<TestingComponent> {
     nextState?: RouterStateSnapshot): Observable<boolean> | boolean {
     
     let url: string =  currentState.url;
-    if (!component.isGoOut  ) {
+    if (!component.isGoOut) {
       component.isGoOut = false;
       return window.confirm('Are you sure want Discard this Test??');
     }

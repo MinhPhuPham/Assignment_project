@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-8">
-                <div class="card blue-grey-text" style="font-size: 24px" *ngFor="let quiz of quiz | paginate : config; let i = index">
+                <div class="card blue-grey-text" style="font-size: 23px" *ngFor="let quiz of quiz | paginate : config; let i = index">
                     <div class="card-header text-center" style="font-size: 30px">Question</div>
                     <div class="card-body">
                         {{ config.currentPage}}./{{quiz.Text}}
@@ -24,17 +24,17 @@
                     </div>
                     <div class="card-footer text-center">
                         <button class="btn" (click)="firstpage()">
-                        <mdb-icon fas icon="fast-backward"></mdb-icon>
-                    </button>
+                            <mdb-icon fas icon="fast-backward"></mdb-icon>
+                        </button>
                         <button class="btn" (click)="down()">
-                        <mdb-icon fas icon="arrow-left"></mdb-icon>
-                    </button>
+                            <mdb-icon fas icon="arrow-left"></mdb-icon>
+                        </button>
                         <button class="btn" (click)="up()">
-                        <mdb-icon fas icon="arrow-right"></mdb-icon>
-                    </button>
+                            <mdb-icon fas icon="arrow-right"></mdb-icon>
+                        </button>
                         <button class="btn" (click)="lastpage()">
-                        <mdb-icon fas icon="fast-forward"></mdb-icon>
-                    </button>
+                            <mdb-icon fas icon="fast-forward"></mdb-icon>
+                        </button>
 
                     </div>
                 </div>
@@ -43,12 +43,14 @@
                 <div class="card blue-grey-text" style="font-size: 20px">
                     <div class="card-header text-center" style="font-size: 30px">Question Review</div>
                     <div class="card-body">
-                        <a class="btn blue-grey-text number-question" #number (click)="redirect_number_question(number)" *ngFor="let quiz of quiz; let i2 = index" [attr.data_index]="i2"> {{i2+1}}</a>
-
+                        <div *ngFor="let quiz of quiz; let num_question = index" style="display: inline-block;">
+                            <a class="btn blue-grey-text number-question {{check_question(number)==true ? 'bg-primary': '.number-question' }} " #number (click)="redirect_number_question(number)" [attr.data_index]="num_question">
+                            {{num_question+1}}</a>
+                        </div>
                     </div>
                     <div class="card-footer text-center custom" style="padding: 0.1rem 0;">
-                        <button class="btn  btn-primary btn-custom" (click)="onSubmit()" type="submit">Submit  
-                    </button>
+                        <button class="btn  btn-primary btn-custom" (click)="onSubmit()" type="submit">Submit
+                        </button>
                     </div>
                 </div>
             </div>
