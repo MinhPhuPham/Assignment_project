@@ -1,21 +1,59 @@
-.custom {
-    // max-width: 700px;
-    float: right;
-    .col-5 {
-        padding-left: 0 !important;
-    }
-    .btn-right {
-        padding: .74rem 2rem !important;
-        margin-left: 0;
-        padding-left: 0;
-    }
-}
-
-.container {
+.container-fluid {
     .card-body {
-        padding: 1rem 1rem 1rem 1.7rem;
+        padding: 1rem 1rem 1rem 2.2rem;
         ul {
             margin-bottom: 0;
         }
+    }
+}
+
+.card {
+    min-height: 430px;
+}
+
+.widget {
+    border: 1px solid #e2e2e2;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.number-question {
+    min-width: 30px;
+    height: 30px;
+    margin: 2px;
+    background-color: #dedede;
+    line-height: 30px;
+    font-size: 16px;
+    padding: 2px;
+    box-shadow: none;
+    &:hover {
+        background-color: #c7a4a4;
+    }
+}
+
+mdb-checkbox .custom-control-label::before {
+    margin-top: 0.46rem !important;
+}
+
+.btn-custom {
+    padding: .84rem 2.14rem !important;
+    font-size: 1.2rem !important;
+}
+
+@media (min-width: 200px) and (max-width: 991px) {
+    .custom {
+        position: absolute;
+        padding: none;
+        margin-left: -22px;
+        .btn-custom {
+            bottom: 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+        }
+    }
+    .card {
+        min-height: 300px;
+        margin-top: 10px;
     }
 }

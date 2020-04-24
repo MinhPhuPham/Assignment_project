@@ -14,6 +14,7 @@
         </div>
         <div class="col-lg-6">
             <div class="text-center my-4" *ngIf="authService.userData as user">
+                <a role="button" class="btn btn-primary">Answers</a>
                 <h3><strong>Your Point: </strong>{{point}}</h3>
                 <p><strong>Done: </strong>{{temp}} %</p>
                 <p><strong>Fail: </strong>{{100-temp}} %</p>

@@ -11,10 +11,11 @@ import { Router } from '@angular/router'
   styleUrls: ['./testing.component.scss']
 })
 export class TestingComponent implements OnInit {
-  isGoOut =true;
+  isGoOut =false;
   quiz :quiz[];
   config;
   public id;
+  quiz2: any;
   constructor(private get: GetService, private route: ActivatedRoute, private title : Title, private router : Router) {
     this.config = {
       itemsPerPage: 1,
@@ -26,41 +27,79 @@ export class TestingComponent implements OnInit {
   }
   listChoose = [];
   changed(choose, index) {  
-    this.listChoose[index] = choose
+    this.listChoose[index] = choose;
+    this.quiz[index].Answered=true;
+    console.log(this.quiz[index]);
+    
   }
+
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
        this.id = params.get('id');
       this.get.getquiz(this.id).pipe(
         map(quiz => this.quiz = quiz)
+        
       ).subscribe(quiz => {
-        this.config.totalItems = quiz.length
+        this.config.totalItems = quiz.length;
       })
     })
     
-    
   }
-  
   onFinished(event) {
     
     if(event.action == "done") {   
     let mark =0;
     for(var i = 0; i < this.listChoose.length; i++) {
-      if(this.quiz[i].Answers[this.listChoose[i] -1].Id === this.quiz[i].AnswerId) {
+      if((this.listChoose[i] > 0) && (this.quiz[i].Answers[this.listChoose[i] -1].Id === this.quiz[i].AnswerId)) {
         mark++;
       }
     }
-    this.isGoOut=false;
+    this.isGoOut=true;
     localStorage.setItem('mark' , mark.toString())
     this.router.navigate([ `/exam/${this.id}/result` ])
-    }
+    } 
   }
+  
+  redirect_number_question(number){
+    let curren_ques=number.getAttribute('data_index');
+    this.config.currentPage= parseInt(curren_ques) +1;
+  }
+  checkAnswer(Answered){
+    return Answered =true;
+  }
+    isAnswered(quiz:quiz) {
+      return this.quiz.findIndex(this.checkAnswer) ? 'Answered' : console.log('not answer');
+      ;
+  };
+  // test_function(){
+  //   // for(var i = 0; i < this.listChoose.length; i++) {
+  //   //   console.log(this.listChoose);
+  //   // }
+  //   // let index_choosen=Object.keys(this.quiz[i].Answered);
+  //   console.log(this.quiz);
+    
+  //   for(var i=0; i< this.quiz.length; i++){
+      
+  //     if(this.quiz[i].Answered==true){
+  //       console.log(this.quiz[i]);
+        
+  //       // console.log(index_choosen);
+        
+  //     }
+  //     else
+  //     console.log('false');
+  //     ;
+  //   }
+  //   // let index_choosen=Object.keys(this.listChoose);
+  //   // console.log(index_choosen);
 
+  // }
+  
   onSubmit() {
-    this.isGoOut=false;
+    this.isGoOut=true;
     let mark =0;
     for(var i = 0; i < this.listChoose.length; i++) {
-      if(this.quiz[i].Answers[this.listChoose[i] -1].Id === this.quiz[i].AnswerId) {
+      if((this.listChoose[i] > 0) && (this.quiz[i].Answers[this.listChoose[i] -1].Id === this.quiz[i].AnswerId)) {
         mark++;
       }
     }
@@ -78,7 +117,8 @@ export class TestingComponent implements OnInit {
     this.config.currentPage = 1
   }
   lastpage() {
-    this.config.currentPage = this.config.totalItems;
+    this.config.currentPage = this.config.totalItems; 
+    
   }
 
 

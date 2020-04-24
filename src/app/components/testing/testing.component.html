@@ -4,51 +4,54 @@
     </countdown>
 </div>
 <div class="my-5">
-    <div class="container">
-
-        <div class="card blue-grey-text" style="font-size: 20px" *ngFor="let quiz of quiz | paginate : config">
-            <div class="card-header text-center" style="font-size: 30px">Exam</div>
-            <div class="card-body">
-                {{config.currentPage}}./{{quiz.Text}}
-                <ul>
-
-                    <mdb-checkbox (change)="changed(1, config.currentPage - 1)" [checked]="listChoose[config.currentPage - 1] === 1" [default]="true">
-                        {{ quiz.Answers[0].Text}}</mdb-checkbox>
-                    <mdb-checkbox (change)="changed(2, config.currentPage - 1)" [checked]="listChoose[config.currentPage - 1] === 2" [default]="true">
-                        {{ quiz.Answers[1].Text}}</mdb-checkbox>
-                    <mdb-checkbox (change)="changed(3, config.currentPage - 1)" [checked]="listChoose[config.currentPage - 1] === 3" *ngIf="quiz.Answers[2]" [default]="true">
-                        {{ quiz.Answers[2].Text}}</mdb-checkbox>
-                    <mdb-checkbox (change)="changed(4, config.currentPage - 1)" [checked]="listChoose[config.currentPage - 1] === 4" *ngIf="quiz.Answers[3]" [default]="true">
-                        {{ quiz.Answers[3].Text}}</mdb-checkbox>
-                </ul>
-            </div>
-            <div class="card-footer text-center">
-                <button class="btn" (click)="firstpage()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card blue-grey-text" style="font-size: 24px" *ngFor="let quiz of quiz | paginate : config; let i = index">
+                    <div class="card-header text-center" style="font-size: 30px">Question</div>
+                    <div class="card-body">
+                        {{ config.currentPage}}./{{quiz.Text}}
+                        <ul>
+                            <mdb-checkbox (change)="changed(1, config.currentPage - 1);" [checked]="listChoose[config.currentPage - 1] === 1" [default]="true">
+                                {{ quiz.Answers[0].Text}}</mdb-checkbox>
+                            <mdb-checkbox (change)="changed(2, config.currentPage - 1) ;" [checked]="listChoose[config.currentPage - 1] === 2" [default]="true">
+                                {{ quiz.Answers[1].Text}}</mdb-checkbox>
+                            <mdb-checkbox (change)="changed(3, config.currentPage - 1);" [checked]="listChoose[config.currentPage - 1] === 3" *ngIf="quiz.Answers[2]" [default]="true">
+                                {{ quiz.Answers[2].Text}}</mdb-checkbox>
+                            <mdb-checkbox (change)="changed(4, config.currentPage - 1);" [checked]="listChoose[config.currentPage - 1] === 4" *ngIf="quiz.Answers[3]" [default]="true">
+                                {{ quiz.Answers[3].Text}}</mdb-checkbox>
+                        </ul>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn" (click)="firstpage()">
                         <mdb-icon fas icon="fast-backward"></mdb-icon>
                     </button>
-                <button class="btn" (click)="down()">
+                        <button class="btn" (click)="down()">
                         <mdb-icon fas icon="arrow-left"></mdb-icon>
                     </button>
-                <button class="btn" (click)="up()">
+                        <button class="btn" (click)="up()">
                         <mdb-icon fas icon="arrow-right"></mdb-icon>
                     </button>
-                <button class="btn" (click)="lastpage()">
+                        <button class="btn" (click)="lastpage()">
                         <mdb-icon fas icon="fast-forward"></mdb-icon>
                     </button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card blue-grey-text" style="font-size: 20px">
+                    <div class="card-header text-center" style="font-size: 30px">Question Review</div>
+                    <div class="card-body">
+                        <a class="btn blue-grey-text number-question" #number (click)="redirect_number_question(number)" *ngFor="let quiz of quiz; let i2 = index" [attr.data_index]="i2"> {{i2+1}}</a>
+
+                    </div>
+                    <div class="card-footer text-center custom" style="padding: 0.1rem 0;">
+                        <button class="btn  btn-primary btn-custom" (click)="onSubmit()" type="submit">Submit  
+                    </button>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="custom">
-            <div class="row">
-                <div class="col-lg-6 col-xs-5 col-5">
-                    <button class="btn btn-primary  btn-right">Review</button>
-                </div>
-                <div class="col-lg-6 col-xs-5 col-5">
-                    <button class="btn btn-primary btn-right" (click)="onSubmit()" type="submit">Submit</button>
-                </div>
-
-            </div>
-        </div>
-
     </div>
 </div>

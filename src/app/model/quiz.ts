@@ -5,6 +5,7 @@ export class quiz {
     Marks : number;
     AnswerId : number;
     Answers : answer[];
+    Answered: boolean;
     
 }
 

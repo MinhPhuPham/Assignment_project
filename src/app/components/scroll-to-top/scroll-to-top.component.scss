@@ -43,3 +43,9 @@
     border-radius: 50%;
     background-image: linear-gradient(to right, #ff8800 0%, #9ad53a 51%, #003cff 100%);
 }
+
+@media (min-width: 200px) and (max-width: 991px) {
+    .gradient-button {
+        margin-bottom: 50px;
+    }
+}
