@@ -23,7 +23,6 @@
 
                 <a role="button" class="btn btn-primary" (click)="basicModal.show()">Save & See Results</a>
                 <br>
-                <a role="button" class="btn btn-primary" (click)="true_answer()">Test Data</a>
                 <small>or</small>
                 <br>
                 <a role="button" class="btn btn-primary" (click)="Back()">Test Again</a>
@@ -44,8 +43,9 @@
             </div>
             <div class="modal-body">
                 <div class="content">
+
                     <div class="btn-question">
-                        <div *ngFor="let question of quiz; let index= index" style="display: inline-block;">
+                        <div *ngFor="let question of quiz; let index= index" style="display: inline-block; max-width: 100px;">
                             <a class="btn blue-grey-text num_question {{iscorrect(question)==true ? 'bg-true': 'bg-fail' }} " #question (click)="basicModal2.show();onclick(index)" [attr.data_index]="index">
                                 Question {{index +1}}</a>
                         </div>

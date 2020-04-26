@@ -58,7 +58,7 @@ export class PieComponent implements OnInit {
   message = 'bug is here';
 
   same_answers = [];
-  true_answers = [];
+  length_ang = [];
   true_answer() {
     for (let i = 0; i < this.quiz.length; i++) {
       for (let j = 0; j < this.quiz[i].Answers.length; j++) {
@@ -73,35 +73,49 @@ export class PieComponent implements OnInit {
 
     this.list_choosen = JSON.parse(localStorage.getItem('choosen'));
 
-
+    let a = [];
+    let b = [];
     for (let i = 0; i < this.list_answers.length; i++) {
       if (this.list_answers[i] === this.list_choosen[i]) {
-        this.same_answers.push(this.list_answers[i]);
+        a.push(this.list_answers[i]);
+        b.push(this.list_answers[i])
       }
       else {
-        this.same_answers.push(null)
+        a.push(null)
       }
     }
-    // console.log(this.same_answers);
-
+    this.length_ang = [...b];
+    this.same_answers = [...a];
 
   }
 
-
+  true = [];
   iscorrect(question) {
+    let index_choosen = [];
     let curren_ques = question.getAttribute('data_index');
-
-    // this.true_answer();
+    // console.log(this.same_answers);
+    this.true_answer();
 
     for (let i = 0; i < this.same_answers.length; i++) {
       if (this.same_answers[i] != null) {
-        let index_choosen = Object.keys(this.same_answers);
-        if (index_choosen.indexOf(curren_ques) == -1) {
-          return false
-        }
-        return true
+        // console.log(this.same_answers[i]);
+        index_choosen.push(Object.keys(this.same_answers)[i])
       }
+      // console.log(this.true);
+
     }
+    // console.log(index_choosen);
+
+    // if(index_choosen.length === this.length_ang.length){
+    //   this.true=[...index_choosen];
+    // }
+
+
+    // let index_choosen = Object.keys(this.same_answers);
+    if (index_choosen.indexOf(curren_ques) == -1) {
+      return false
+    }
+    return true
 
 
     // console.log(index_choosen);

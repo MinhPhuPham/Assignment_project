@@ -7,7 +7,7 @@
     margin: 2px;
     background-color: #dedede;
     line-height: 30px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 430;
     padding: 8px;
     &:hover {
@@ -16,10 +16,10 @@
 }
 
 .bg-fail {
-    background-color: rgb(216, 45, 45);
+    background-color: rgb(216, 45, 45) !important;
     color: rgb(181, 221, 214) !important;
 }
 
 .bg-true {
-    background-color: rgb(34, 240, 34);
+    background-color: rgb(34, 240, 34) !important;
 }

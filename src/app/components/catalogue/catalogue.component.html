@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12">
             <div class="alert alert-dark alert-dismissible fade show">
                 Home / <span><a routerLink='/listsubject'>subjects</a></span>
             </div>
@@ -71,7 +71,7 @@
             </section>
             <!-- Team -->
         </div>
-        <div class="col-md-2">
+        <div class="col-lg-2 col-md-4">
             <div style="position: sticky; top:0; z-index: 1">
                 <div class="table-responsive">
                     <table class="table table-fixed">
@@ -80,7 +80,7 @@
                                 <th class="bg-warning"><i class="fas fa-list-alt"></i> List Of Subject</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody style="border: 1px solid #ccc!important;">
                             <tr *ngFor='let temp of list' [title]="(temp.Name)+ '=>'+ 'click test'">
                                 <a routerLink="/exam/{{temp.id}}">
                                     <td>{{temp.Name}}</td>
