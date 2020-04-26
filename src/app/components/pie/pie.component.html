@@ -14,23 +14,78 @@
         </div>
         <div class="col-lg-6">
             <div class="text-center my-4" *ngIf="authService.userData as user">
-                <a role="button" class="btn btn-primary">Answers</a>
                 <h3><strong>Your Point: </strong>{{point}}</h3>
-                <p><strong>Done: </strong>{{temp}} %</p>
+                <p><strong>Done: </strong>{{temp}} % || {{mark}}/{{total}} question </p>
                 <p><strong>Fail: </strong>{{100-temp}} %</p>
                 <p><strong>User: </strong>{{(user.displayName) ? user.displayName : 'User'}}</p>
                 <p><strong>Email: </strong>{{user.email}}</p>
                 <hr>
 
-                <a role="button" class="btn btn-primary">Save My Point</a>
-                <a role="button" class="btn btn-primary" (click)="Back()">Test Again</a>
-
+                <a role="button" class="btn btn-primary" (click)="basicModal.show()">Save & See Results</a>
                 <br>
+                <a role="button" class="btn btn-primary" (click)="true_answer()">Test Data</a>
                 <small>or</small>
                 <br>
-                <button class="btn btn-primary" routerLink="/exam">Let's go For another test</button>
+                <a role="button" class="btn btn-primary" (click)="Back()">Test Again</a>
             </div>
         </div>
     </div>
 </div>
-<hr>
+
+<!-- Modal list question -->
+<div mdbModal style="overflow-y: auto" #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: rgba(0, 0, 0, 0.03);">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+                <h4 class="modal-title text-center w-100" id="myModalLabel">Results Question</h4>
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <div class="btn-question">
+                        <div *ngFor="let question of quiz; let index= index" style="display: inline-block;">
+                            <a class="btn blue-grey-text num_question {{iscorrect(question)==true ? 'bg-true': 'bg-fail' }} " #question (click)="basicModal2.show();onclick(index)" [attr.data_index]="index">
+                                Question {{index +1}}</a>
+                        </div>
+                    </div>
+                    <div class="readmore">
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal answer question -->
+<div mdbModal #basicModal2="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" *ngIf="quiz2">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal2.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+                <h4 class="modal-title w-100" id="myModalLabel">Question {{index_num+1}}</h4>
+            </div>
+            <div class="modal-body">
+                <h4>{{quiz2.Text}}</h4>
+                <hr>
+                <div class="content_ques" *ngFor="let ques of list_question">
+                    <ul>
+                        <mdb-checkbox [disabled]="true" [default]="true">
+                            <p style="color: rgb(65, 61, 55);width: 100%;font-size: 1.2rem;" [ngClass]="{'bg-success': quiz2.AnswerId==ques.Id}"> {{ques.Text}} </p>
+                        </mdb-checkbox>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal2.hide()" mdbWavesEffect>Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -44,7 +44,7 @@
                     <div class="card-header text-center" style="font-size: 30px">Question Review</div>
                     <div class="card-body">
                         <div *ngFor="let quiz of quiz; let num_question = index" style="display: inline-block;">
-                            <a class="btn blue-grey-text number-question {{check_question(number)==true ? 'bg-primary': '.number-question' }} " #number (click)="redirect_number_question(number)" [attr.data_index]="num_question">
+                            <a class="btn blue-grey-text number-question {{check_question(number)==true ? 'bg-choosen': '.number-question' }} " #number (click)="redirect_number_question(number)" [attr.data_index]="num_question">
                             {{num_question+1}}</a>
                         </div>
                     </div>

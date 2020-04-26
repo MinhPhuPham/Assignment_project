@@ -29,6 +29,7 @@ export class TestingComponent implements OnInit {
   changed(choose, index) {
     this.listChoose[index] = choose;
     this.quiz[index].Answered = true;
+    
   }
 
   ngOnInit() {
@@ -53,6 +54,7 @@ export class TestingComponent implements OnInit {
         }
       }
       this.isGoOut = true;
+      localStorage.setItem('choosen', JSON.stringify(this.listChoose));
       localStorage.setItem('mark', mark.toString())
       this.router.navigate([`/exam/${this.id}/result`])
     }
@@ -84,6 +86,7 @@ export class TestingComponent implements OnInit {
         mark++;
       }
     }
+    localStorage.setItem('choosen', JSON.stringify(this.listChoose));
     localStorage.setItem('mark', mark.toString())
     this.router.navigate([`/exam/${this.id}/result`])
   }
