@@ -31,7 +31,7 @@
         "body-parser": "^1.19.0",
         "chart.js": "^2.9.2",
         "cookie-parser": "^1.4.4",
-        "express": "^4.17.1",
+        "express": "^4.17.3",
         "fastest-validator": "^0.6.18",
         "firebase": "^7.2.1",
         "hammerjs": "^2.0.8",
